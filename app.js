@@ -37,22 +37,24 @@ function getComputerInput() {
 
 // From button onClick method will call playRound('rock')
 // The game progresses with each human input, therefore this function call pushes the game forward by one round
-function playRound(humanInput) {
+function playRound(playerInput) {
   if (!isGameOver()) {
     const compInput = getComputerInput();
-    const roundStatus = determineWin(humanInput, compInput);
+    const roundStatus = determineWin(playerInput, compInput);
     updateWinLoss(roundStatus);
 
     gameHistory.push({
       Ties: numTie,
       playerWins: numPlayerWin,
-      ComputerWins: numComputerWin,
+      computerWins: numComputerWin,
+      playerInput: playerInput,
+      computerInput: compInput,
     });
 
     playerWins.innerText = numPlayerWin;
     compWins.innerText = numComputerWin;
 
-    consoleTableGame(humanInput, compInput);
+    consoleTableGame(playerInput, compInput);
 
     if (isGameOver()) {
       declareWinner();
@@ -100,7 +102,7 @@ function resetGame() {
 
 /* Console based human input, requiring validators
 
-function getHumanInput() {
+function getplayerInput() {
   let answer = prompt(
     'Please enter an input\nRock, Paper, or Scissors',
     'rock'
@@ -153,7 +155,8 @@ function consoleTableGame(playerInput, compInput) {
   console.table(gameHistory);
   console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 }
-/*
+/* Console version of game
+
 function playRockPaperScissors(numGames) {
   // Reset variable every game 
   numPlayerWin = 0;
