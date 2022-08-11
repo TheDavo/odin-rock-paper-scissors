@@ -16,9 +16,13 @@
       <h2>A game to 5!</h2>
     </div>
 
+    <div class="gameStatus">
+      <p>Your wins: <span id="playerWins">0</span></p>
+      <p>Game ties: <span id="gameTies">0</span></p>
+      <p>Computer wins: <span id="compWins">0</span></p>
+    </div>
     <div class="actionsContainer">
       <div class="player">
-        <p>Your wins: <span id="playerWins">0</span></p>
         <div class="actions">
           <button id="playerRock" onclick="playRound('rock')">Rock</button>
           <button id="playerPaper" onclick="playRound('paper')">Paper</button>
@@ -28,7 +32,6 @@
         </div>
       </div>
       <div class="computer">
-        <p>Computer wins: <span id="compWins">0</span></p>
         <div class="actions">
           <button id="compRock" disabled>Rock</button>
           <button id="compPaper" disabled>Paper</button>

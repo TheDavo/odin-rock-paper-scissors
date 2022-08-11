@@ -30,6 +30,7 @@ const winConditions = {
 
 const playerWins = document.querySelector('#playerWins');
 const compWins = document.querySelector('#compWins');
+const gameTies = document.querySelector('#gameTies');
 
 function getComputerInput() {
   return hands[Math.floor(Math.random() * 3)];
@@ -53,6 +54,7 @@ function playRound(playerInput) {
 
     playerWins.innerText = numPlayerWin;
     compWins.innerText = numComputerWin;
+    gameTies.innerText = numTie;
 
     consoleTableGame(playerInput, compInput);
 
