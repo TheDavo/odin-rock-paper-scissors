@@ -17,15 +17,23 @@
     </div>
 
     <div class="actionsContainer">
-      <div class="humanActions">
-        <button id="humanRock">Rock</button>
-        <button id="humanPaper">Paper</button>
-        <button id="humanScissors">Scissors</button>
+      <div class="player">
+        <p id="playerWins"></p>
+        <div class="actions">
+          <button id="playerRock" onclick="playRound('rock')">Rock</button>
+          <button id="playerPaper" onclick="playRound('paper')">Paper</button>
+          <button id="playerScissors" onclick="playRound('scissors')">
+            Scissors
+          </button>
+        </div>
       </div>
-      <div class="computerActions">
-        <button id="compRock" disabled>Rock</button>
-        <button id="compPaper" disabled>Paper</button>
-        <button id="compScissors" disabled>Scissors</button>
+      <div class="computer">
+        <p id="compWins"></p>
+        <div class="actions">
+          <button id="compRock" disabled>Rock</button>
+          <button id="compPaper" disabled>Paper</button>
+          <button id="compScissors" disabled>Scissors</button>
+        </div>
       </div>
     </div>
 

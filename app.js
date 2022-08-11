@@ -1,8 +1,7 @@
-let numHumanWin = 0;
+let numPlayerWin = 0;
 let numComputerWin = 0;
 let numTie = 0;
-let humanHand;
-let computerHand;
+const gameTo = 5;
 let gameHistory = [];
 let cancelGame = false;
 
@@ -27,9 +26,79 @@ const winConditions = {
   },
 };
 
+// Connect JavaScript to the HTML elements
+
+const playerWins = document.querySelector('#playerWins');
+const compWins = document.querySelector('#compWins');
+
 function getComputerInput() {
   return hands[Math.floor(Math.random() * 3)];
 }
+
+// From button onClick method will call playRound('rock')
+// The game progresses with each human input, therefore this function call pushes the game forward by one round
+function playRound(humanInput) {
+  if (!isGameOver()) {
+    const compInput = getComputerInput();
+    const roundStatus = determineWin(humanInput, compInput);
+    updateWinLoss(roundStatus);
+
+    gameHistory.push({
+      Ties: numTie,
+      playerWins: numPlayerWin,
+      ComputerWins: numComputerWin,
+    });
+
+    playerWins.innerText = numPlayerWin;
+    compWins.innerText = numComputerWin;
+
+    consoleTableGame(humanInput, compInput);
+
+    if (isGameOver()) {
+      declareWinner();
+    }
+  }
+}
+
+function declareWinner() {
+  if (determinePlayerWin()) {
+    console.log('You won!');
+  } else {
+    console.log('Computer won! :(');
+  }
+}
+
+function isGameOver() {
+  return numComputerWin == gameTo || numPlayerWin == gameTo;
+}
+
+function updateWinLoss(status) {
+  switch (status) {
+    case 0:
+      numTie++;
+      break;
+    case 1:
+      numPlayerWin++;
+      break;
+    case 2:
+      numComputerWin++;
+      break;
+  }
+}
+
+function determinePlayerWin() {
+  return numPlayerWin > numComputerWin;
+}
+
+function resetGame() {
+  numPlayerWin = 0;
+  numComputerWin = 0;
+  numTie = 0;
+  gameHistory = [];
+  cancelGame = false;
+}
+
+/* Console based human input, requiring validators
 
 function getHumanInput() {
   let answer = prompt(
@@ -60,9 +129,11 @@ function isValidInput(input) {
   return true;
 }
 
+*/
+
 // Return a 0 for tie, 1 for human win, and 2 for computer win
-function determineWin(humanHand, computerHand) {
-  switch (winConditions[humanHand][computerHand]) {
+function determineWin(playerHand, computerHand) {
+  switch (winConditions[playerHand][computerHand]) {
     case 'tie':
       return 0;
     case 'win':
@@ -72,9 +143,20 @@ function determineWin(humanHand, computerHand) {
   }
 }
 
+function consoleTableGame(playerInput, compInput) {
+  console.clear();
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  console.log(
+    `Inputs:\nPlayer input: ${playerInput}\nComputer input: ${compInput}`
+  );
+  console.log(`Game number ${numComputerWin + numTie + numPlayerWin}`);
+  console.table(gameHistory);
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+}
+/*
 function playRockPaperScissors(numGames) {
-  /* Reset variable every game */
-  numHumanWin = 0;
+  // Reset variable every game 
+  numPlayerWin = 0;
   numComputerWin = 0;
   numTie = 0;
   gameHistory = [];
@@ -82,7 +164,7 @@ function playRockPaperScissors(numGames) {
   let validInput = false;
   let winner = 0;
 
-  while (numHumanWin + numComputerWin != numGames && !cancelGame) {
+  while (numPlayerWin + numComputerWin != numGames && !cancelGame) {
     computerHand = getComputerInput();
 
     do {
@@ -96,7 +178,7 @@ function playRockPaperScissors(numGames) {
           numTie++;
           break;
         case 1:
-          numHumanWin++;
+          numPlayerWin++;
           break;
         case 2:
           numComputerWin++;
@@ -104,7 +186,7 @@ function playRockPaperScissors(numGames) {
       }
       gameHistory.push({
         Ties: numTie,
-        Wins: numHumanWin,
+        Wins: numPlayerWin,
         Losses: numComputerWin,
       });
       console.clear();
@@ -112,7 +194,7 @@ function playRockPaperScissors(numGames) {
       console.log(
         `Inputs:\nHuman input: ${humanHand}\nComputer input: ${computerHand}`
       );
-      console.log(`Game number ${numComputerWin + numTie + numHumanWin}`);
+      console.log(`Game number ${numComputerWin + numTie + numPlayerWin}`);
       console.table(gameHistory);
       console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     } else {
@@ -120,3 +202,4 @@ function playRockPaperScissors(numGames) {
     }
   }
 }
+*/
