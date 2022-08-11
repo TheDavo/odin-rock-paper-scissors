@@ -100,6 +100,10 @@ function resetGame() {
   numTie = 0;
   gameHistory = [];
   cancelGame = false;
+
+  playerWins.innerText = numPlayerWin;
+  compWins.innerText = numComputerWin;
+  gameTies.innerText = numTie;
 }
 
 /* Console based human input, requiring validators
