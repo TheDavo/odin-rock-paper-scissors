@@ -2,6 +2,12 @@
   display: flex;
 }
 
+.gameStatus {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 1rem;
+}
+
 .actionsContainer div {
   padding: 32px;
 }
