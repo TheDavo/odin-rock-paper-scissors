@@ -1,0 +1,7 @@
+.actionsContainer {
+  display: flex;
+}
+
+.actionsContainer div {
+  padding: 32px;
+}
