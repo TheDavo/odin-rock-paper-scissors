@@ -6,8 +6,29 @@
     <script type="text/javascript" src="./app.js"></script>
   </head>
   <body>
-    <p>
-      Go into the console (F12) and use playRockPaperScissors(numGames) to play!
-    </p>
+    <header>
+      <h1>Rock, Paper, Scissors - Odin Style</h1>
+    </header>
+
+    <div class="winCon">
+      <h2>A game to 5!</h2>
+    </div>
+
+    <div class="actionsContainer">
+      <div class="humanActions">
+        <button id="humanRock">Rock</button>
+        <button id="humanPaper">Paper</button>
+        <button id="humanScissors">Scissors</button>
+      </div>
+      <div class="computerActions">
+        <button id="compRock" disabled>Rock</button>
+        <button id="compPaper" disabled>Paper</button>
+        <button id="compScissors" disabled>Scissors</button>
+      </div>
+    </div>
+
+    <div class="gameHistory">
+      <!-- Game history table goes here!-->
+    </div>
   </body>
 </html>
