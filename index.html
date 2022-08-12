@@ -9,7 +9,7 @@
 
   <body>
     <header>
-      <h1>Rock, Paper, Scissors - Odin Style</h1>
+      <h1>Rock, Paper, Scissors</h1>
     </header>
 
     <div class="winCon">
@@ -17,9 +17,12 @@
     </div>
 
     <div class="gameStatus">
-      <p>Your wins: <span id="playerWins">0</span></p>
-      <p>Game ties: <span id="gameTies">0</span></p>
-      <p>Computer wins: <span id="compWins">0</span></p>
+      <p id="winner"></p>
+      <div class="numWins">
+        <p>Your wins: <span id="playerWins">0</span></p>
+        <p>Game ties: <span id="gameTies">0</span></p>
+        <p>Computer wins: <span id="compWins">0</span></p>
+      </div>
     </div>
     <div class="actionsContainer">
       <div class="player">
@@ -31,13 +34,13 @@
           </button>
         </div>
       </div>
-      <div class="computer">
+      <!-- <div class="computer">
         <div class="actions">
           <button id="compRock" disabled>Rock</button>
           <button id="compPaper" disabled>Paper</button>
           <button id="compScissors" disabled>Scissors</button>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <button id="resetGame" onclick="resetGame()">Start Over!</button>

@@ -31,6 +31,7 @@ const winConditions = {
 const playerWins = document.querySelector('#playerWins');
 const compWins = document.querySelector('#compWins');
 const gameTies = document.querySelector('#gameTies');
+const winner = document.querySelector('#winner');
 
 function getComputerInput() {
   return hands[Math.floor(Math.random() * 3)];
@@ -67,8 +68,10 @@ function playRound(playerInput) {
 function declareWinner() {
   if (determinePlayerWin()) {
     console.log('You won!');
+    winner.innerText = 'You won!';
   } else {
     console.log('Computer won! :(');
+    winner.innerText = 'The computer won! O:';
   }
 }
 
@@ -104,6 +107,7 @@ function resetGame() {
   playerWins.innerText = numPlayerWin;
   compWins.innerText = numComputerWin;
   gameTies.innerText = numTie;
+  winner.innerText = '';
 }
 
 /* Console based human input, requiring validators
