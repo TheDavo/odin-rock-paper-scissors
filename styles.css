@@ -27,3 +27,29 @@
 .numWins p {
   margin: 0px 1rem;
 }
+
+.gameHistory {
+  display: flex;
+  justify-content: center;
+}
+
+.gameHistory {
+  text-align: center;
+}
+
+#gameTable {
+  border-collapse: collapse;
+}
+
+#gameTable th {
+  padding: 1rem;
+}
+
+#gameTableBody tr {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+#gameTableBody td {
+  padding: 1rem;
+}
