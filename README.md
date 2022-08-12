@@ -4,7 +4,11 @@ The Odin Project - Foundations - Rock Paper Scissors Game
 
 # Current Status
 
-The game right now is in the Foundations version; it is currently just a console based game.
+The game right now is in the Foundations version
+
+The `main` branch hosts the console version.
+
+The `rps-ui` branch hosts the UI version of the game.
 
 # Instructions
 
