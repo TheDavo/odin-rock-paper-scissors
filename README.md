@@ -16,10 +16,6 @@ Choose the input options until the game is over, and use the Start Over button t
 
 These are wishlists that I would like to add as I learn more about JavaScript and DOM manipulation
 
-[] Confetti animation when user wins
-
-[] Sad animation when user loses
-
 [] Animation on each button click showing the output of the round in a clash of texts across the window
 
 [] A simple table with game history, the `gameHistory` array shall be used to make the table
