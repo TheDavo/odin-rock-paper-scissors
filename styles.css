@@ -1,13 +1,17 @@
 .actionsContainer {
   display: flex;
+  justify-content: center;
+}
+.actionsContainer div {
+  padding: 32px;
+}
+
+#resetGame {
+  margin-left: 1rem;
 }
 
 .numWins {
   display: flex;
   justify-content: space-between;
   margin: 0px 1rem;
-}
-
-.actionsContainer div {
-  padding: 32px;
 }
