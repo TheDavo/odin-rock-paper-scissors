@@ -1,3 +1,7 @@
+* {
+  font-family: sans-serif;
+}
+
 .actionsContainer {
   display: flex;
   justify-content: center;
@@ -16,6 +20,10 @@
 
 .numWins {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0px 1rem;
+}
+
+.numWins p {
   margin: 0px 1rem;
 }

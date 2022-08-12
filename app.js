@@ -107,7 +107,7 @@ function resetGame() {
   playerWins.innerText = numPlayerWin;
   compWins.innerText = numComputerWin;
   gameTies.innerText = numTie;
-  winner.innerText = '';
+  winner.innerText = 'Winner undecided...';
 }
 
 // Return a 0 for tie, 1 for human win, and 2 for computer win
