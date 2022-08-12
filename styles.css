@@ -10,6 +10,10 @@
   margin-left: 1rem;
 }
 
+.gameStatus > p {
+  text-align: center;
+}
+
 .numWins {
   display: flex;
   justify-content: space-between;
