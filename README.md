@@ -4,14 +4,22 @@ The Odin Project - Foundations - Rock Paper Scissors Game
 
 # Current Status
 
-The game right now is in the Foundations version; it is currently just a console based game.
+This is the UI branch of the Rock Paper Scissors game.
+
+The `main` branch is the console version.
 
 # Instructions
 
-Open the dev console (F12) and use the function playRockPaperScissors(numGames : number) to get started!
+Choose the input options until the game is over, and use the Start Over button to reset the game anytime.
 
-# Features
+# Features Wishlist
 
-- Input type error checking using isValidInput function
-- Use of console.table() and gameHistory array to show users their game
-  - Using console.clear() and console.table() shows the current game's status without overloading the console!
+These are wishlists that I would like to add as I learn more about JavaScript and DOM manipulation
+
+[] Confetti animation when user wins
+
+[] Sad animation when user loses
+
+[] Animation on each button click showing the output of the round in a clash of texts across the window
+
+[] A simple table with game history, the `gameHistory` array shall be used to make the table
