@@ -110,39 +110,6 @@ function resetGame() {
   winner.innerText = '';
 }
 
-/* Console based human input, requiring validators
-
-function getplayerInput() {
-  let answer = prompt(
-    'Please enter an input\nRock, Paper, or Scissors',
-    'rock'
-  );
-  // Sanitize the input
-  if (answer != null) {
-    answer = cleanHumanInput(answer);
-  } else {
-    answer = '';
-    cancelGame = true;
-  }
-  return answer;
-}
-
-function cleanHumanInput(input) {
-  input = input.toLowerCase();
-  input = input.trim();
-  return input;
-}
-
-function isValidInput(input) {
-  const inArray = hands.indexOf(input);
-  if (inArray == -1) {
-    return false;
-  }
-  return true;
-}
-
-*/
-
 // Return a 0 for tie, 1 for human win, and 2 for computer win
 function determineWin(playerHand, computerHand) {
   switch (winConditions[playerHand][computerHand]) {
@@ -165,54 +132,3 @@ function consoleTableGame(playerInput, compInput) {
   console.table(gameHistory);
   console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 }
-/* Console version of game
-
-function playRockPaperScissors(numGames) {
-  // Reset variable every game 
-  numPlayerWin = 0;
-  numComputerWin = 0;
-  numTie = 0;
-  gameHistory = [];
-  cancelGame = false;
-  let validInput = false;
-  let winner = 0;
-
-  while (numPlayerWin + numComputerWin != numGames && !cancelGame) {
-    computerHand = getComputerInput();
-
-    do {
-      humanHand = getHumanInput();
-      validInput = isValidInput(humanHand);
-    } while (!validInput && !cancelGame);
-    if (!cancelGame) {
-      winner = determineWin(humanHand, computerHand);
-      switch (winner) {
-        case 0:
-          numTie++;
-          break;
-        case 1:
-          numPlayerWin++;
-          break;
-        case 2:
-          numComputerWin++;
-          break;
-      }
-      gameHistory.push({
-        Ties: numTie,
-        Wins: numPlayerWin,
-        Losses: numComputerWin,
-      });
-      console.clear();
-      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-      console.log(
-        `Inputs:\nHuman input: ${humanHand}\nComputer input: ${computerHand}`
-      );
-      console.log(`Game number ${numComputerWin + numTie + numPlayerWin}`);
-      console.table(gameHistory);
-      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-    } else {
-      console.log('Game canceled!');
-    }
-  }
-}
-*/
