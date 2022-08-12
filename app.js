@@ -32,6 +32,7 @@ const playerWins = document.querySelector('#playerWins');
 const compWins = document.querySelector('#compWins');
 const gameTies = document.querySelector('#gameTies');
 const winner = document.querySelector('#winner');
+const gameTable = document.querySelector('#gameTableBody');
 
 function getComputerInput() {
   return hands[Math.floor(Math.random() * 3)];
@@ -58,6 +59,7 @@ function playRound(playerInput) {
     gameTies.innerText = numTie;
 
     consoleTableGame(playerInput, compInput);
+    addRoundToTable();
 
     if (isGameOver()) {
       declareWinner();
@@ -108,6 +110,7 @@ function resetGame() {
   compWins.innerText = numComputerWin;
   gameTies.innerText = numTie;
   winner.innerText = 'Winner undecided...';
+  gameTable.innerHTML = '';
 }
 
 // Return a 0 for tie, 1 for human win, and 2 for computer win
@@ -131,4 +134,36 @@ function consoleTableGame(playerInput, compInput) {
   console.log(`Game number ${numComputerWin + numTie + numPlayerWin}`);
   console.table(gameHistory);
   console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+}
+
+function addRoundToTable() {
+  const newRow = document.createElement('tr');
+  gameTable.appendChild(newRow);
+
+  const latestRound = gameHistory[gameHistory.length - 1];
+  const roundChild = document.createElement('td');
+  roundChild.innerText =
+    latestRound.Ties + latestRound.playerWins + latestRound.computerWins;
+
+  const tieChild = document.createElement('td');
+  tieChild.innerText = latestRound.Ties;
+
+  const winChild = document.createElement('td');
+  winChild.innerText = latestRound.playerWins;
+
+  const lossChild = document.createElement('td');
+  lossChild.innerText = latestRound.computerWins;
+
+  const playerInputChild = document.createElement('td');
+  playerInputChild.innerText = latestRound.playerInput;
+
+  const computerInputChild = document.createElement('td');
+  computerInputChild.innerText = latestRound.computerInput;
+
+  newRow.appendChild(roundChild);
+  newRow.appendChild(tieChild);
+  newRow.appendChild(winChild);
+  newRow.appendChild(lossChild);
+  newRow.appendChild(playerInputChild);
+  newRow.appendChild(computerInputChild);
 }
